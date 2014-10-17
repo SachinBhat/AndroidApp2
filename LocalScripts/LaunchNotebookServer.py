@@ -18,12 +18,14 @@ from urllib2 import urlopen
 import dateutil.parser
 import datetime
 import logging
+from IPython.lib import passwd
 
 
 # AMI name: ERM_Utils These two lines last updated 8/27/2014
 ami_owner_id = '846273844940'
 ami_name = 'MASDSE'
 login_id = 'ubuntu'
+new_instance = False
 
 
 def read_credentials(c_vault):
@@ -92,6 +94,15 @@ def report_all_instances():
             print "\tInstance name = %s | Instance state = %s | Launched = %s | DNS name = %s" % \
                   (n.id, n.state, n.launch_time, n.public_dns_name)
 
+            # Wait for instances to stop or shut down before trying to determine their state
+            if n.state == "stopping" or n.state == "shutting-down":
+                # Keep checking the instance state and loop until the state change has completed
+                while n.state == 'stopping' or n.state == "shutting-down":
+                    logging.info("(RI) Waiting for instance %s to finish %s " % (n.id, n.state))
+                    print "%s Waiting for instance to finish %s" % (time.strftime('%H:%M:%S'), n.state)
+                    time.sleep(10)
+                    n.update()
+
             # Only consider instances that are running or pending or stopped
             if n.state == "running" or n.state == "pending" or n.state == "stopped":
                 # Return the instance that was launched last
@@ -107,7 +118,7 @@ def report_all_instances():
         # Start the instance if the returned instance has been stopped
         if return_instance.state == "stopped":
             logging.info("(RI) Starting stopped instance: %s" % return_instance.id)
-            print "(Starting stopped instance: %s" % return_instance.id
+            print "Starting stopped instance: %s" % return_instance.id
             return_instance.start()
         logging.info("(RI) Selected: Instance name = %s | Instance state = %s | Launched = %s | DNS name = %s" %
                      (return_instance.id, return_instance.state, return_instance.launch_time,
@@ -132,7 +143,15 @@ def stop_all_instances():
                              (n.id, n.state, n.launch_time, n.public_dns_name))
                 print "Stopping instance name = %s | Instance state = %s | Launched = %s | DNS name = %s" % \
                       (n.id, n.state, n.launch_time, n.public_dns_name)
+
                 n.stop()
+
+                # Keep checking the instance state and loop until it has been stopped
+                while not n.state == 'stopped':
+                    logging.info("(SI) Waiting for instance to stop: %s Instance status: %s " % (n.id, n.state))
+                    print "%s Waiting for instance to stop. Instance status: %s" % (time.strftime('%H:%M:%S'), n.state)
+                    time.sleep(10)
+                    n.update()
 
 
 # Find and terminate all instances that are tagged as owned by user_name and the source is LaunchNotebookServer.py
@@ -186,13 +205,9 @@ def terminate_all_instances():
                     w.delete()
 
 
-def empty_call_back(line):
-    return False
-
-
 def kill_all_notebooks():
     command = ['scripts/CloseAllNotebooks.py']
-    send_command(command, empty_call_back)
+    send_command(command)
 
 
 def set_credentials():
@@ -203,7 +218,7 @@ def copy_credentials(local_dir):
     from glob import glob
     print 'Entered copy_credentials:', local_dir
     mkdir = ['mkdir', 'Vault']
-    send_command(mkdir, empty_call_back, dont_wait=True)
+    send_command(mkdir)
     local_dir_list = glob(local_dir)
     scp = ['scp', '-i', key_pair_file]+local_dir_list+[('%s@%s:Vault/' % (login_id, instance.public_dns_name))]
     print ' '.join(scp)
@@ -214,65 +229,106 @@ def set_password(password):
     if len(password) < 6:
         sys.exit('Password must be at least 6 characters long')
     command = ["scripts/SetNotebookPassword.py", password]
-    send_command(command, empty_call_back)
+    send_command(command)
 
 
 def create_image(image_name):
     #delete the Vault directory, where all of the secret keys and passwords reside.
     delete_vault = ['rm', '-r', '~/Vault']
-    send_command(delete_vault, empty_call_back)
+    send_command(delete_vault)
     instance.create_image(image_name)
 
 
-def send_command(command, callback, dont_wait=False):
+def empty_call_back(line):
+    return False
+
+
+def send_command(command, stderr_call_back=empty_call_back, stdout_call_back=empty_call_back, display=True):
+    return_variable = False
+
     print 'SendCommand:', ' '.join(ssh+command)
-    ssh_process = subprocess.Popen(ssh+command,
-                                   shell=False,
-                                   stdin=subprocess.PIPE,
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE)
+    command_output = subprocess.Popen(ssh+command,
+                                      shell=False,
+                                      stdin=subprocess.PIPE,
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.PIPE)
 
     def data_waiting(source):
         return select.select([source], [], [], 0) == ([source], [], [])
 
-    end_reached = False
-    while not end_reached:
-        # Check for errors before checking the output
-        if data_waiting(ssh_process.stderr):
-            line = ssh_process.stderr.readline()
-            if len(line) > 0:
-                print line
+    while True:
+        # Read from stderr and print any errors
+        if data_waiting(command_output.stderr):
+            command_stderr = command_output.stderr.readline()
+            if len(command_stderr) > 0:
+                if display:
+                    print command_stderr,
+                # Run custom stderr_call_back routine
+                return_variable |= stderr_call_back(command_stderr)
 
-        if data_waiting(ssh_process.stdout):
-            line = ssh_process.stdout.readline()
-            if not line:
-                end_reached = True
-            if len(line) > 0:
-                print line,
+        # Read from stdout
+        if data_waiting(command_output.stdout):
+            command_stdout = command_output.stdout.readline()
+            # Stop if the end of stdout has been reached
+            if not command_stdout:
+                break
+            else:
+                if display:
+                    print command_stdout,
+                # Run custom stdout_call_back routine
+                return_variable |= stdout_call_back(command_stdout)
 
-                end_reached = end_reached | callback(line)
-
-                match_end = re.match('=== END ===', line)
-                if match_end:
-                    end_reached = True
-        if dont_wait:
-            end_reached = True
         time.sleep(0.1)
 
+    return return_variable
 
-def launch_notebook(name=''):
-    command = ["scripts/launch_notebook.py", name, "2>&1"]
 
+def launch_notebook(notebook_name=''):
+    command = ["scripts/launch_notebook.py", notebook_name]
+
+    # If vault/notebook_pass.txt exists, send the hashed contents of the file to AWS
+    if os.path.isfile(vault + "/notebook_pass.txt"):
+        logging.info("Found %s/notebook_pass.txt" % vault)
+
+        f = open(vault + "/notebook_pass.txt", "r")
+        notebook_pass = f.read().rstrip()
+        logging.info("notebook_pass.txt: %s" % notebook_pass)
+        f.close()
+
+        command.append(passwd(notebook_pass))
+
+    # Redirect stderr to stdout
+    command.append("2>&1")
+
+    # Parse the output of the launch_notebook.py command and exit once the iPython Notebook server is launched
     def detect_launch_port(line):
-        match = re.search('IPython\ Notebook\ is\ running\ at\:.*system\]\:(\d+)/', line)
-        if match:
-            port_no = match.group(1)
-            print 'opening https://'+instance.public_dns_name+':'+port_no+'/'
-            webbrowser.open('https://'+instance.public_dns_name+':'+port_no+'/')
-            return True
+        launch_match = re.search('IPython Notebook is running at:.*system\]:(\d+)/', line)
+        already_launched_match = re.search('The port (\d+) is already in use, trying another random port', line)
+
+        # Check if a new instance of iPython Notebook was launched and open the URL in the default system browser
+        if launch_match:
+            port_no = launch_match.group(1)
+            logging.info("New iPython Notebook Launched, opening https://%s:%s/" % (instance.public_dns_name, port_no))
+            print "New iPython Notebook Launched, opening https://%s:%s/" % (instance.public_dns_name, port_no)
+            webbrowser.open("https://%s:%s/" % (instance.public_dns_name, port_no))
+
+            logging.info("LaunchNotebookServer.py finished")
+            sys.exit("iPython Notebook Server Started")
+
+        # Check if an existing instance of iPython Notebook is running and open the URL in the default system browser
+        if already_launched_match:
+            port_no = already_launched_match.group(1)
+            logging.info("iPython Notebook already running, opening https://%s:%s/" %
+                         (instance.public_dns_name, port_no))
+            print "iPython Notebook already running, opening https://%s:%s/" % (instance.public_dns_name, port_no)
+            webbrowser.open("https://%s:%s/" % (instance.public_dns_name, port_no))
+
+            logging.info("LaunchNotebookServer.py finished")
+            sys.exit("iPython Notebook Server is already running, reopening URL")
+
         return False
 
-    send_command(command, detect_launch_port)
+    send_command(command, stderr_call_back=detect_launch_port, stdout_call_back=detect_launch_port)
 
 
 def check_security_groups():
@@ -344,6 +400,53 @@ def check_security_groups():
     return c_security_groups
 
 
+def checkout_private_repository():
+    logging.info("Got new_instance, attempting to checkout the student's private repository")
+
+    # Verify vault/github_id_rsa exists since it is needed to clone the student's private repository
+    if os.path.isfile(vault + "/github_id_rsa"):
+        logging.info("Found: %s/github_id_rsa" % vault)
+
+        # Function to parse the output of the test_ssh_available command
+        def parse_test_ssh_available_response(response):
+            logging.info("(PTSA) %s" % response.strip())
+
+            # If the remote shell echos True then SSH is available on the remote EC2 instance
+            if not response.find("True") == -1:
+                logging.info("(PTSA) Found True: %s" % response.strip())
+                return True
+
+            return False
+
+        # ssh to the remote EC2 instance and echo True to verify that the ssh service is available
+        test_ssh_available = ['echo', '"True"']
+
+        while not send_command(test_ssh_available, stderr_call_back=parse_test_ssh_available_response,
+                               stdout_call_back=parse_test_ssh_available_response):
+            logging.info("Waiting for EC2 instance to finish booting up")
+            print "Waiting for EC2 instance to finish booting up"
+            time.sleep(10)
+
+        logging.info("EC2 instance is now available")
+        print "EC2 instance is now available"
+        logging.info("Copying GitHub SSH key to EC2 Instance")
+        print "Copying GitHub SSH key to EC2 Instance"
+
+        # Copy vault/github_id_rsa to the EC2 instance
+        copy_credentials(vault + "/github_id_rsa")
+
+        logging.info("Checking out git@github.com:mas-dse/%s.git on the EC2 instance" % user_name)
+        print "Checking out git@github.com:mas-dse/%s.git on the EC2 instance" % user_name
+
+        command = ['scripts/git_checkout.py', '-r', user_name]
+        send_command(command)
+    else:
+        logging.info("Did not find: %s/github_id_rsa, not attempting to checkout the private repository on the"
+                     "EC2 instance." % vault)
+        print "Did not find: %s/github_id_rsa, not attempting to checkout the private repository on the EC2 " \
+              "instance." % vault
+
+
 if __name__ == "__main__":
     # parse parameters
     parser = argparse.ArgumentParser(description='launch an ec2 instance and then start an ipython notebook server')
@@ -373,7 +476,7 @@ if __name__ == "__main__":
                         help='Stop all running ec2 instances')
     parser.add_argument('--term_instances', dest='terminate', action='store_true', default=False,
                         help='Terminate all running and stopped ec2 instances. THIS WILL DELETE ALL DATA STORED ' +
-                              'ON THE INSTANCES! Backup your data first!')
+                             'ON THE INSTANCES! Backup your data first!')
 
     args = vars(parser.parse_args())
 
@@ -434,6 +537,7 @@ if __name__ == "__main__":
 
     # If there is no instance that is pending or running, create one
     if instance is None:
+        new_instance = True
         instance_type = args['instance_type']
         disk_size = args['disk_size']
 
@@ -499,10 +603,14 @@ if __name__ == "__main__":
         v.add_tag("instance", instance.id)
 
     # Define the ssh command
-    ssh = ['ssh', '-Xi', key_pair_file, ('%s@%s' % (login_id, instance.public_dns_name))]
+    ssh = ["ssh", "-Xi", key_pair_file, "%s@%s" % (login_id, instance.public_dns_name), "-o",
+           "StrictHostKeyChecking=no"]
     logging.info("The SSH Command: %s" % ' '.join(ssh))
 
     if len(sys.argv) == 1:
+        if new_instance:
+            checkout_private_repository()
+
         logging.info("Instance Ready!")
         print "\nInstance Ready! %s %s" % (time.strftime('%H:%M:%S'), instance.state)
 
