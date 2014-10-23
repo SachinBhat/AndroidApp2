@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+          android:padding="10dp"
+        android:background="@drawable/followers_list_table_bg" >
+
+        <ImageView
+            android:id="@+id/lyt_feedcategory_row_img_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/no_image"
+           
+           />
+
+        <TextView
+            android:id="@+id/lyt_feedcategory_row_txt_name"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

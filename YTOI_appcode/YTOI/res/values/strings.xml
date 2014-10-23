@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- AppLication AppID -->
+    <string name="map_appkey">AIzaSyCvwH4GzKvfEbul9tVUAJrArFTf0WmEIH8</string>
+    <!-- <string name="facebook_appid">640430639328182</string> -->
+    <string name="notification_senderid">942519382075</string>
+
+    <!-- Gallary AlertDialog -->
+    <string name="alert_selectanyone">Select Any One</string>
+    <string name="alert_takephoto">Take photo</string>
+    <string name="alert_gallary">Gallary</string>
+    <!-- ======== -->
+
+
+    <!-- Gallary AlertDialog -->
+    <string name="alert_exit">Do you want to close YTOI ?</string>
+    <string name="alert_yes">YES</string>
+    <string name="alert_no">NO</string>
+    <!-- ======== -->
+
+    <string name="app_name">YTOI</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="submit">SUBMIT</string>
+    <string name="feed">FEED</string>
+    <string name="musttry">MUST TRY</string>
+    <string name="experts">EXPERTS</string>
+    <string name="follow">FOLLOW</string>
+    <string name="checkins">CHECK INS</string>
+    <string name="takes">TAKES</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="following">FOLLOWING</string>
+    <string name="profile">PROFILE</string>
+    <string name="place_profile">PLACE PROFILE</string>
+    <string name="recos">RECOS</string>
+    <string name="rate">RATE</string>
+    <string name="editprofile">EDIT PROFILE</string>
+    <string name="home">HOME</string>
+    <string name="setting">SETTING</string>
+    <string name="explore">EXPLORE</string>
+    <string name="message">MESSAGE</string>
+    <string name="notifications">NOTIFICATIONS</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="change_password"><u>Change Password</u></string>
+    <string name="change_pass">Change Password</string>
+    <string name="account">ACCOUNTS</string>
+    <string name="addAccount">Add account</string>
+    <string name="addAdditional">Add additional YTOI accounts</string>
+    <string name="general">GENERAL</string>
+    <string name="soundeffect">Sound Effects</string>
+    <string name="FontSize">Font Size</string>
+    <string name="advanced">ADVANCED</string>
+    <string name="proxy">Proxy</string>
+    <string name="configProxy">Configure HTTP Proxy for network requests</string>
+    <string name="location">Location</string>
+    <string name="allowLocation">Allow YTOI to use Your Location</string>
+    <string name="about">ABOUT</string>
+    <string name="version">Version </string>
+    <string name="helpterm">Help, Terms of Service, Privacy Policy, Cookies Use.</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="category">SELECT A CATEGORY</string>
+    <string name="category_fragment">CATEGORY</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+
+    <!-- ADD FEED -->
+
+    <string name="feed_sharegoogle">SHARE ON GOOGLE +</string>
+    <string name="feed_sharefb">SHARE ON FACEBOOK</string>
+    <string name="feed_shareexpiriance">SHARE YOUR EXPERIENCE...</string>
+    <string name="feed_itemname">ITEM NAME</string>
+    <string name="feed_location">LOCATION</string>
+    <string name="feed_category">CATEGORY</string>
+    <string name="circles_title">Visible circles:</string>
+    <string name="sign_out_button_name">Sign out</string>
+    <string name="revoke_access_button_name">Revoke</string>
+    <string name="status_sign_in_required">Sign-in required</string>
+    <string name="status_sign_in_error">Error signing in: %s</string>
+    <string name="status_loading">Loading…</string>
+    <string name="status_signing_in">Signing in with Google+…</string>
+    <string name="status_signed_out">Signed out</string>
+    <string name="status_revoke_access">Revoked access</string>
+    <string name="status_revoke_access_error">Error revoking access: %s</string>
+    <string name="signed_in_as">Signed in as %s</string>
+
+    <!-- Used if there was an error loading the signed in user's name. -->
+    <string name="unknown_person">Unknown</string>
+    <string name="play_services_error">Google Play services is not available.  This application will close.</string>
+    <string name="close">Close</string>
+    <string name="profile_picture">User\'s profile picture.</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="ok">OK</string>
+    <string name="hello_user">Hello %1$s!</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Successfully posted \'%1$s\'.\nPost ID: %2$s</string>
+    <string name="error">Error</string>
+    <string name="status_update">Updating status for %1$s at %2$s</string>
+    <string name="photo_post">Photo Post</string>
+    <string name="you_picked">You picked:</string>
+    <string name="no_friends_selected">&lt;No friends selected&gt;</string>
+    <string name="no_place_selected">&lt;No place selected&gt;</string>
+    <string name="pick_seattle_place">Pick a Seattle Place</string>
+    <string name="app_id">355198514515820</string>
+    <string name="exception">Exception: %1$s</string>
+    <string name="request">Request</string>
+    <string name="check_internet">Please Check your Internet Connection Server Not connect with App YTOI..!</string>
+
+</resources>

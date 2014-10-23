@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:background="@color/profile_row"
+        android:padding="5dp" >
+        <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+      
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/personalprofile_Imageview_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/images" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/personalprofile_Imageview_bg"
+            android:layout_alignLeft="@+id/personalprofile_Imageview_bg"
+            android:background="@drawable/placeprofile_topimg_transfernt" >
+
+            <ImageView
+                android:id="@+id/personalprofile_Imageview_userimage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/ic_launcher" />
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/personalprofile_Imageview_userimage"
+                android:layout_alignTop="@+id/personalprofile_Imageview_userimage"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="55dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/personalprofile_Imageview_userimage"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:weightSum="2"
+                     >
+
+                    <TextView
+                        android:id="@+id/personalprofile_Textview_username"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SANKALP"
+                         android:gravity="left"
+                         android:textSize="@dimen/btn_text"
+                         android:singleLine="true"
+                        android:textColor="@color/line_color" 
+                        android:clickable="true"/>
+
+                    <TextView
+                        android:id="@+id/personalprofile_Textview_placeInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:ems="10"
+                          android:singleLine="true"
+                        android:text="CAFE COFEE DAY"
+                         android:textSize="@dimen/btn_text"
+                        android:textColor="@color/line_color"
+                      
+                         android:clickable="true" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/LinearLayout1"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="10dp" >
+                    <TextView
+                        android:id="@+id/personalprofile_Textview_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BEST COFFEE I HAD "
+                         android:gravity="left"
+                           android:textSize="4pt"
+                            android:singleLine="true"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" 
+                    android:layout_marginBottom="2dp"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" >
+                         <TextView
+                            android:id="@+id/personalprofile_Textview_hours"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="@color/white"
+                              android:singleLine="true"
+                            android:textSize="3pt" />
+
+                        <TextView
+                            android:id="@+id/personalprofile_Textview_HoursInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                            android:text="HOURS AGO"
+                            android:textColor="@color/white"
+                            android:textSize="3pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                          android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" >
+                         <TextView
+                            android:id="@+id/personalprofile_Textview_near"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                            android:text="NEAR"
+                            android:textColor="@color/white"
+                            android:textSize="3pt" />
+                        <TextView
+                            android:id="@+id/personalprofile_Textview_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                        
+                            android:textColor="@color/line_color"
+                         
+                             android:textSize="3pt"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/personalprofile_Imageview_comment"
+                         android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                       />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/personalProfile_Textview_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/personalprofile_Imageview_bg"
+            android:layout_alignRight="@+id/personalprofile_Imageview_bg"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+             />
+    </RelativeLayout>
+    </RelativeLayout>
+
+    
+
+    <TextView
+        android:id="@+id/personalprofile_Textview_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        android:layout_marginTop="30dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+    	   android:textSize="12sp"
+    	    android:textColor="@color/white"
+      />
+
+</RelativeLayout>

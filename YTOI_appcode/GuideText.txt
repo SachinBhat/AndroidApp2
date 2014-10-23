@@ -1,0 +1,7 @@
+for configuration change in 
+
+admin/include/config.inc.php
+
+admin/class/DB.class.php
+
+admin/header.php

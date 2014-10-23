@@ -1,0 +1,198 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Activity_Login" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" >
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_firstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="FIRST NAME"
+                    android:nextFocusDown="@+id/editProfile_EditText_lastName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_lastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="LAST NAME"
+                    android:nextFocusDown="@+id/editProfile_RadioGroup_Gender"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <TextView
+                    android:id="@+id/editProfile_txt_emailid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:nextFocusDown="@+id/editProfile_EditText_lastName"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <RadioGroup
+                    android:id="@+id/editProfile_RadioGroup_Gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:nextFocusDown="@+id/editProfile_EditText_street"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/editProfile_RadioButton_Male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/male"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/editProfile_RadioButton_Female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female"
+                        android:textColor="@color/black" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_street"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="STREET"
+                    android:nextFocusDown="@+id/editProfile_EditText_city"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="City"
+                    android:nextFocusDown="@+id/editProfile_EditText_State"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_State"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="STATE"
+                    android:nextFocusDown="@+id/editProfile_EditText_country"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_country"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="COUNTRY"
+                    android:nextFocusDown="@+id/editProfile_EditText_zipcode"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <EditText
+                    android:id="@+id/editProfile_EditText_zipcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/edit_user_box"
+                    android:ems="10"
+                    android:hint="ZIPCODE"
+                    android:inputType="number"
+                    android:nextFocusDown="@+id/editProfile_Button_Submit"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+
+                <Button
+                    android:id="@+id/editProfile_Button_Submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/login_main_logo"
+                    android:textColor="@color/btn"
+                    android:textSize="@dimen/btn_text" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</RelativeLayout>

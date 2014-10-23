@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/header_main" />
+
+    <ScrollView
+        android:id="@+id/fragment_scroll_mainhomefeed"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/include1"
+        android:paddingBottom="40dip" >
+
+        <LinearLayout
+            android:id="@+id/fragment_scroll_lin_mainhomefeed"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+    <!-- <ListView -->
+    <!-- android:id="@+id/frgment_listView_List" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="fill_parent" -->
+    <!-- android:layout_below="@+id/include1" -->
+    <!-- android:background="@color/white" -->
+    <!-- android:divider="@android:color/transparent" -->
+    <!-- android:dividerHeight="1dp" -->
+    <!-- android:paddingBottom="48dip" > -->
+    <!-- </ListView> -->
+
+    <FrameLayout
+        android:id="@+id/profile_content_frame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/include1" />
+
+    <include
+        android:id="@+id/include2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        layout="@layout/footer_main" />
+
+</RelativeLayout>

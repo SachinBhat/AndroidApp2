@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" 
+        android:background="@drawable/followers_list_table_bg">
+
+        <ImageView
+            android:id="@+id/experthomerow_ImageView_userimage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher" />
+
+        <Button
+            android:id="@+id/experthomerow_ImageView_follow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/follow_btn_bg"
+            android:text="@string/follow" 
+            android:textColor="@color/line_color"
+            android:textSize="@dimen/text_size"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/experthomerow_ImageView_userimage"
+            android:layout_alignTop="@+id/experthomerow_ImageView_userimage"
+            android:layout_toLeftOf="@+id/experthomerow_ImageView_follow"
+            android:layout_toRightOf="@+id/experthomerow_ImageView_userimage"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/experthomerow_Textview_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size" />
+
+            <TextView
+                android:id="@+id/experthomerow_Textview_Location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Area"
+                 android:textColor="@color/black"
+              android:textSize="@dimen/btn_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom" >
+
+                <TextView
+                    android:id="@+id/experthomerow_Textview_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FOLLOWER 45"
+                     android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

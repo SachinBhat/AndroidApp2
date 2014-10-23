@@ -1,0 +1,137 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_bg"
+    android:overScrollMode="always"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/login_main_logo"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="40dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/registration_EditText_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/signup_text_bg"
+                android:ems="10"
+                android:hint="YOUR NAME"
+                android:nextFocusDown="@+id/registration_EditText_email"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <EditText
+                android:id="@+id/registration_EditText_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/signup_text_bg"
+                android:ems="10"
+                android:hint="E- MAIL"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@+id/registration_EditText_date"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <TextView
+                android:id="@+id/registration_EditText_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/signup_text_bg"
+                android:drawablePadding="2dp"
+                android:drawableRight="@drawable/signup_clander_icon"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="DATE OF BIRTH"
+                android:nextFocusDown="@+id/registration_EditText_password"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <EditText
+                android:id="@+id/registration_EditText_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/signup_text_bg"
+                android:ems="10"
+                android:hint="PASSWORD"
+                android:inputType="textPassword"
+                android:nextFocusDown="@+id/registration_EditText_confPassword"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <EditText
+                android:id="@+id/registration_EditText_confPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/signup_text_bg"
+                android:ems="10"
+                android:hint="CONFIRM PASSWORD"
+                android:inputType="textPassword"
+                android:nextFocusDown="@+id/registration_Button_Submit"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:singleLine="true"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <Button
+                android:id="@+id/registration_Button_Submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/login_submit"
+                android:textColor="@color/btn"
+                android:textSize="@dimen/btn_text" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/hight_transferent"
+                android:background="@drawable/login_submit"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

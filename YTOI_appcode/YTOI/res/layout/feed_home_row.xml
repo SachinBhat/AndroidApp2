@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/feedhomerow_RelativeLayout_bg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/images" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/placeprofile_topimg_transfernt" >
+
+            <ImageView
+                android:id="@+id/feedhomerow_Imageview_userphoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/ic_launcher" />
+
+            <RelativeLayout
+                android:id="@+id/RelativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/feedhomerow_Imageview_userphoto"
+                android:layout_alignTop="@+id/feedhomerow_Imageview_userphoto"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="55dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/feedhomerow_Imageview_userphoto"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/feedhomerow_LinearLayout_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true" >
+
+                    <TextView
+                        android:id="@+id/feedhomerow_Textview_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AGNI KAPOOR"
+                        android:textColor="@color/line_color"
+                        android:textSize="@dimen/btn_text" 
+                         android:clickable="true"/>
+
+                    <TextView
+                        android:id="@+id/feedhomerow_Textview_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:text="RATED"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/btn_text" />
+
+                    <TextView
+                        android:id="@+id/feedhomerow_Textview_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:text="DEVIL&apos;S OWN"
+                        android:textColor="@color/line_color"
+                        android:textSize="@dimen/btn_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/feedhomerow_LinearLayout_name"
+                    android:paddingBottom="5dp" >
+
+                    <TextView
+                        android:id="@+id/feedhomerow_Textview_at"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:text="AT"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/btn_text" />
+
+                    <TextView
+                        android:id="@+id/feedhomerow_Textview_place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:text="STARBUCKS"
+                        android:textColor="@color/line_color"
+                        android:textSize="@dimen/btn_text" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="2dp"
+                    android:paddingTop="5dp"
+                    android:weightSum="4" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:id="@+id/feedhomerow_Textview_hours"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="4pt" />
+
+                        <TextView
+                            android:id="@+id/feedhomerow_Textview_hoursTXT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                            android:text="HOURS AGO"
+                            android:textColor="@color/white"
+                            android:textSize="4pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2" >
+                        <TextView
+                            android:id="@+id/feedhomerow_Textview_near"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                            android:text="NEAR"
+                            android:textColor="@color/white"
+                            android:textSize="4pt" />
+                        <TextView
+                            android:id="@+id/feedhomerow_Textview_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="2dp"
+                            android:text="AHEMDABAD"
+                            android:textColor="@color/line_color"
+                            android:textSize="4pt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:weightSum="2" >
+
+                        <ImageView
+                            android:id="@+id/feedhomerow_Imageview_comment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                           />
+
+                        <ImageView
+                            android:id="@+id/feedhomerow_Imageview_like"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                             android:layout_weight="1"
+                             android:layout_gravity="right"
+                           />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/feedhomerow_Imageview_statusImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

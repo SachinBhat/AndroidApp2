@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  
+ 	<color name="white">#FFFFFF</color>
+ <color name="line_color">#4cb193</color>
+ <color name="login_textcolor">#e1e1e1</color>
+ <color name="bg">#363636</color>
+  <color name="list_border">#656565 </color>
+<color name="profile_row">#D2D2D2</color>
+<color name="category_list_color_sel">#257563</color>
+<color name="category_list_color">#227563</color>
+<color name="pop_button_color">#32bda1</color>
+  
+<!--  <color name="yellow">#FFFF00</color> -->
+<!--  <color name="fuchsia">#FF00FF</color> -->
+ <color name="red">#FF0000</color>
+<!--  <color name="silver">#C0C0C0</color> -->
+ <color name="gray">#808080</color>
+<!--  <color name="olive">#808000</color> -->
+<!--  <color name="purple">#800080</color> -->
+<!--  <color name="maroon">#800000</color> -->
+<!--  <color name="aqua">#00FFFF</color> -->
+<!--  <color name="lime">#00FF00</color> -->
+<!--  <color name="teal">#008080</color> -->
+<!--  <color name="green">#008000</color> -->
+ <color name="blue">#3399FF</color>
+<!--  <color name="navy">#000080</color> -->
+<!--  <color name="back_button_color">#337bbf</color> -->
+<!--   <color name="back_button_color_sel">#0860b1</color> -->
+ 
+ <color name="black">#000000</color>
+ <color name="edit_text">#454545</color>
+ <color name="btn">#252525</color>
+ 
+<!--  <color name="vip_first">#2a1323</color> -->
+<!--  <color name="vip_second">#4f2742</color> -->
+</resources>

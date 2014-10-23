@@ -1,0 +1,115 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_bg"
+    android:overScrollMode="always"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_main_logo"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="40dip"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/loginmain_Button_Facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_fb" />
+
+                <Button
+                    android:id="@+id/loginmain_Button_GooglePlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_google" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/loginmain_Button_SignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_signup" />
+
+            <EditText
+                android:id="@+id/loginmain_Edittext_Username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/login_username"
+                android:ems="5"
+                android:hint="USERNAME"
+                android:paddingLeft="5dip"
+                android:paddingRight="25dip"
+                android:singleLine="true"
+                android:textColor="@color/edit_text"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_line" />
+
+            <EditText
+                android:id="@+id/loginmain_Edittext_Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_password"
+                android:ems="5"
+                android:hint="PASSWORD"
+                android:inputType="textPassword"
+                android:paddingLeft="5dip"
+                android:paddingRight="25dip"
+                android:singleLine="true"
+                android:textColor="@color/edit_text"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/loginmain_Button_SignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_signin" />
+
+            <TextView
+                android:id="@+id/loginmain_Textview_forgotPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/hight_transferent"
+            android:background="@drawable/login_submit"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,277 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { margin:0px; padding:0px; }
+body {	background:#FFF url(../images/main_bg.jpg) no-repeat;
+		font-family: Arial, Helvetica, sans-serif; color:#555; font-size:12px; }
+a img  { border:none; }
+.align { width:990px; margin:0 auto; }
+.clear { clear:both; }
+.f_left { float:left; }
+.f_right { float:right; }
+.commonDIV{ width:100%; }
+
+
+/*===================================      LOGIN PAGE    =================================*/
+
+body#login { color: #333; background: #fff; padding-bottom:10px; }
+
+#login-wrapper {  height:220px; background-color:#111111; border-bottom:2px solid #6d6d6d; }
+#login-wrapper div { padding-top:50px;}
+#LoginArea { width:475px; margin:0 auto; margin-top:50px; }
+#LoginBox { padding:20px 10px 20px 64px; }
+#LoginArea #top { background:url(../images/login_top_bg.png) no-repeat; margin:0 auto; width:425px; height:26px;
+text-align:left; padding:13px 0px 0px 10px; color:black; font-size:14px; }
+#LoginArea #midd { background:#f2f2f2; border-left:#dedede solid 1px; border-right:#dedede solid 1px; margin:0 auto; width:433px; }
+#LoginArea #bot { background:url(../images/login_bot_bg.png) no-repeat; width:475px; height:69px; margin:0 auto; }
+#LoginBox .FieldName { float:left; width:80px; margin-right:10px; color:#000; font-family:Arial; font-size:13px;  margin-top:7px; }
+#LoginBox .FielType { float:left; margin-bottom:10px; }
+
+/*====================================  ENDS HERE   ==================================*/
+
+/*=============================== TEXTBOX AND BUTTON STYLE ========================================*/
+
+.TextBox input { border:none; background:none; width:200px; }
+.TextBox .Left { background-image:url(../images/textbox_left.png); width:3px; height:29px; float:left; }
+.TextBox .Midd { background:#FFF; border-top:#dbdbdb solid 1px; border-bottom:#dbdbdb solid 1px; height:27px; float:left; }
+.TextBox .Midd span { display:block;  margin-top:5px; }
+.TextBox .Right { background-image:url(../images/textbox_right.png); width:3px; height:29px; float:left; }
+
+.ButtonBg { clear:both; cursor:pointer; }
+.ButtonBg input { border:none; background:none; background:none; border:none; color:#007e3a; font-family:Tahoma; font-size:14px; padding:2px 2px 0px 2px; cursor:pointer; }
+.ButtonBg .Left { background-image:url(../images/btn_left.png); width:4px; height:27px; float:left; }
+.ButtonBg .Midd { background-image:url(../images/btn_midd.png); background-repeat:repeat-x; height:27px; float:left; }
+.ButtonBg .Right { background-image:url(../images/btn_right.png); width:4px; height:27px; float:left; }
+
+.SignIn { float:right; margin-right:62px; }
+.SignIn a { text-decoration:none; color:#333;}
+.SignIn a:hover { text-decoration:none; color:#007e3a;}
+/*=============================   ENDS HERE   ==========================================*/
+
+
+
+/*============================   LEFT CONTAINER   =============================================*/
+
+#LeftContainer { width:320px; padding-left:30px; margin-top:12px; float:left; }
+
+#LoginDetail { padding:10px 10px; }
+.LoginText { color:#8c8a8a; font-size:11px; text-decoration:none; } 
+.UserNameText a { color:#474747;; font-size:11px; text-decoration:none; }
+.UserNameText a:hover { color:#565656; }
+
+/*=============================================================================================*/
+
+
+/*========================= HEADER STARTS  ===================================================*/
+#Header { background:url(../images/header_bg.jpg) repeat-x; height:137px; padding-top:33px; }
+#Logo { width:178px; float:left; }
+#MenuArea { /*width:812px;*/ width:100%; float:left; }
+#MenuArea #UserName { float:right; color:#FFF; }
+#UserName span a, #UserAccount a { color:#E868E8; text-decoration:none; }
+#UserName span a:hover, #UserAccount a:hover { color:#929292; }
+#UserAccount { clear:both; float:right; margin:5px 0px;}
+
+
+#MenuBar {clear:both; margin-top:51px; float:left; }
+#MenuBar ul { margin: 0 auto; padding:0; list-style:none; }
+#MenuBar li {
+    display: inline; float: left;
+    list-style: none outside none;
+    margin: 0 0 0 2px; padding: 0;
+}
+#MenuBar li a {
+    color: #FFF;cursor: pointer;
+    display: block;
+    float: left;
+    font-size: 13px; font-weight: bold;
+    height: 42px; padding: 0 0 0 6px;
+    text-decoration: none;
+}
+#MenuBar a span { float: left; padding: 15px 10px 11px 2px; }
+#MenuBar a:hover {
+    background:url(../images/MenuLeft.png) no-repeat scroll left top transparent;
+    color: #007e3a;
+}
+#MenuBar a:hover span {
+    background: url(../images/MenuRight.png) no-repeat scroll right top transparent;
+}
+#MenuBar a.active {
+    background:url(../images/MenuLeft.png) no-repeat scroll left top transparent;
+    color: #007e3a;
+}
+#MenuBar a.active span {
+    background: url(../images/MenuRight.png) no-repeat scroll right top transparent;
+}
+/*============================================================================================*/
+
+
+
+/*======================================   MIDDLE AREA   ======================================*/
+.MiddleArea { clear:both; margin-top:20px; margin-bottom:20px; }
+.content-box {  width:990px; margin:0 auto; min-height:500px;  }
+
+.content-header-midd {background-image:url(../images/HeaderMidd.jpg); background-repeat:repeat-x;
+		 width:980px; height:47px; font-weight:bold; font-size:17px; color:#007e3a; float:left; }
+.content-header-left { background:url(../images/HeaderLeft.png) no-repeat; width:5px; height:47px; float:left; }
+.content-header-right { background:url(../images/HeaderRight.png) no-repeat; width:5px; height:47px; float:left; }
+
+.content-header-midd span { display:block; padding: 12px 15px 10px; float: left; }
+
+ul.content-box-tabs {
+                float: right;
+                padding: 17px 15px 0 0 !important;
+				margin: 0 !important; list-style:none; }
+
+ul.content-box-tabs li {
+                float: left;
+                margin: 0; padding: 0 !important;
+                background-image: none !important; }
+
+ul.content-box-tabs li span { display:block; padding: 8px 10px; }
+ul.content-box-tabs li span.current { 
+				background: #fff;
+                border: 1px solid #ccc; font-weight:bold;
+				border-bottom:0px; height:13px;
+                margin: 0;  }
+ul.content-box-tabs li span.current a { color:#007e3a; }
+ul.content-box-tabs li a {
+				 font-family:arial; font-size:11px; color:#000; text-decoration:none; color:#595959; text-decoration:none;
+				}
+
+ul.content-box-tabs li a:hover { color: #007e3a; }              
+
+.content-box-content { clear:both; padding: 20px; font-size: 13px; background-color:#fff;
+                border: 1px solid #a5a5a5; border-top:none; }
+
+.content-box-content #searchbox { border:1px solid #CCC; padding:0px;}
+
+.content-box-content #searchbox #search_title { padding-left:5px; background-color:#CCC; height:20px; text-align:left; font-weight:bold; padding-top:5px; line-height:-1px;  }				
+                
+/************ Table ************/
+
+.content-box-content table.Listing { 
+width: 100%; 
+/*border-collapse: collapse; */
+border:1px solid #ccc; 
+}
+                
+.content-box-content table.Listing thead th { font-size: 13px; border-bottom: 1px solid #a5a5a5;}
+               
+.content-box-content table.Listing tbody tr { background: #fff; text-align:left; }
+              
+/* .content-box-content table.Listing tbody tr.alt-row { background: #fff9de; } */
+ .content-box-content table.Listing tbody tr.alt-row { background: #f0f0f0; } 
+
+                
+.content-box-content table.Listing td { padding: 5px; line-height: 1.3em; }        
+.content-box-content table.Listing td a { color:#007e3a; text-decoration:none; }
+.content-box-content table.Listing td a:hover { text-decoration:underline; }
+.content-box-content table.Listing th { padding: 7px;line-height: 1.3em; }        
+				
+.content-box-content table.Listing tfoot td .bulk-actions {
+                padding: 15px 0 5px 0; font-size:12px; color:#22b6b8; } 
+				
+.content-box-content .pagination { text-align:right; padding: 5px 0px 0px 0px; font-size:9pt;  }
+.pagination a { margin: 0 5px 0 0; color:#57a000; padding: 3px 6px; text-decoration:none; }
+
+.pagination a.number { border: 1px solid #ddd; }
+
+.pagination a.current { background:#FFCE00; border-color: #e1b500 !important;  color: #FFF !important;}
+				
+.pagination a:hover { color:#747171; }
+
+.content-box-content .delete_btn { text-align:left; padding: 15px 0px 5px 0px; font-size:12px;float:left; }
+
+.content-box-content .with_selected { margin-top:10px; margin-left:4px; text-align:left; padding-left:20px;float:left; background-image:url(../images/arrow_ltr.png); height:38px;width:95px; background-repeat:no-repeat;  }
+
+.content-box-content .select_class { float:left;margin-left:20px;width:120px; margin-top:8px; font-size:11px;  }
+
+
+
+/*==================================================================================================================*/
+
+
+
+/*======================================   FOOTER AREA   ======================================*/
+#Footer { background:url(../images/footer_bg.jpg) repeat-x; height:68px; color:#FFF; font-size:11px; padding-top:38px; }
+#Footer ul { list-style:none; width:990px; margin:0 auto; text-align:center; }
+#Footer ul li { display:inline; }
+#Footer ul li a { color:#FFF; text-decoration:none; }
+#Footer ul li a:hover { color:#007e3a; }
+/*============================================================================================*/
+
+
+/*  ERROR MESSAGES GOES HERE */
+
+.err
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:10pt;
+	color:#F00;
+	float:left;
+	padding:10px 10px 10px 10px;
+}
+
+/* ALL BUTTON CSS GOES HERE */ 
+
+input[type=button]
+{
+	background-color:#e5e5e5;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:3px;
+	padding-bottom:3px;
+	border:1px solid #ccc; 
+	color:#666;
+	font-weight:200;
+	border-radius:5px;
+	cursor:pointer;
+	box-shadow:2px 2px 2px #888888;
+}
+
+input[type=submit]
+{
+	background-color:#e5e5e5;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:3px;
+	padding-bottom:3px;
+	border:1px solid #ccc; 
+	color:#666;
+	font-weight:200;
+	border-radius:5px;
+	cursor:pointer;
+	box-shadow:2px 2px 2px #888888;
+}
+
+
+
+.table_add
+{
+	border:1px solid #ccc;
+	width:100%;
+}
+
+.td_heading
+{
+	padding-left:3px;
+	padding-top:7px;
+	padding-bottom:7px;
+	font-size:10pt;
+	color:#666;
+	
+}
+fieldset
+{
+	border:1px solid #CCC;
+	border-radius:4px;
+	font-family:"Courier New", Courier, monospace;
+	font-weight:bold;
+	padding:5px;
+	color:#333333;
+}
+
+.select-box
+{
+	width:215px;
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header_main" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/explor_searchbg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip" >
+
+        <AutoCompleteTextView
+            android:id="@+id/explore_autoedt_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:paddingRight="5dip"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+        <ImageButton
+            android:id="@+id/explore_btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/explor_search_btn" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <ScrollView
+            android:id="@+id/explorer_scroll_mapcatefeed"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingBottom="40dip" >
+
+            <LinearLayout
+                android:id="@+id/explorer_scroll_lin_mapcatefeed"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:id="@+id/explorer_framelay_fragmentmap"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <fragment
+                        android:id="@+id/explorer_fragment_map"
+                        android:name="com.google.android.gms.maps.MapFragment"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" />
+
+                    <FrameLayout
+                        android:id="@+id/explorer_fragment_framelay_transfernt"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@android:color/transparent" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/explorer_scroll_horizontalscroll_lin_category"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/explorer_scroll_lin_feed"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/footer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            layout="@layout/footer_main" />
+    </RelativeLayout>
+
+</LinearLayout>
